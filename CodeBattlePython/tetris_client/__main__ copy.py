@@ -29,7 +29,7 @@ ROTATION_COUNTS = {
     'T': 4,
 }
 
-SCORE_FOR_HOLE = 20
+SCORE_FOR_HOLE = 10
 MULTIPLIER_FULL_ROWS = -3
 SCORES_FOR_FULL_ROWS = [0, 10, 30, 50, 100]
 
@@ -207,8 +207,8 @@ def get_score(
         if count_blocks == 0:
             break
 
-        if y > 4:
-            heights_score += count_blocks * pow(y, 1.5)
+        if y > 5:
+            heights_score += count_blocks * (y - 5) * (y - 5)
 
         if count_blocks == board_size:
             count_full_rows += 1
@@ -340,7 +340,7 @@ def turn(gcb: Board) -> List[TetrisAction]:
 
     # prev_cols_heights = cols_heights
 
-    # print("BEST.  score: {},  shift: {},  rot: {}".format(best_score, best_shift, best_rot))
+    print("BEST.  score: {},  shift: {},  rot: {}".format(best_score, best_shift, best_rot))
     actions = []
 
     if best_rot == 1:
@@ -358,11 +358,9 @@ def turn(gcb: Board) -> List[TetrisAction]:
     actions.append(TetrisAction.DOWN)
 
     end_time = time.time()
-    # print("  TIME.  get_board: {:.6f}  get_score: {:.6f}  get_cols_heights: {:.6f}  total: {:.6f}".format(
-    #     total_get_board_time, total_get_score_time, total_get_cols_heights_time, end_time - start_time),
-    # )
-
-    # time.sleep(10)
+    print("  TIME.  get_board: {:.6f}  get_score: {:.6f}  get_cols_heights: {:.6f}  total: {:.6f}".format(
+        total_get_board_time, total_get_score_time, total_get_cols_heights_time, end_time - start_time),
+    )
 
     return actions
 
@@ -380,13 +378,13 @@ if __name__ == "__main__":
     # put your game url in the 'uri' path 1-to-1 as you get in UI
 
     uri = "http://{}/codenjoy-contest/board/player/{}?code={}&gameName=tetris".format(
-        "codebattle2020.westeurope.cloudapp.azure.com",
-        "rq5k7kulq3t78tcsvice",
-        "3502227942623102662",
+        # "codebattle2020.westeurope.cloudapp.azure.com",
+        # "rq5k7kulq3t78tcsvice",
+        # "3502227942623102662",
 
-        # "localhost:8080",
-        # "ur4i4ozcsyjusmekp36y",
-        # "6681050020408655667",
+        "localhost:8080",
+        "ur4i4ozcsyjusmekp36y",
+        "6681050020408655667",
     )
 
     main(uri)

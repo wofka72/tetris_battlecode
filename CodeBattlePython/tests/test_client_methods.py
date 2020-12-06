@@ -37,9 +37,9 @@ def test_element_rotation_i():
     # точка вращения
     anchor = Point(8, 16)
     expected = [Point(8, 17), Point(8, 16), Point(8, 15), Point(8, 14)]
-    assert expected == element.get_all_coords(anchor, rotation=0)
+    assert expected == element.get_all_coords_after_rotation(anchor, rotation=0)
     expected = [Point(9, 16), Point(8, 16), Point(7, 16), Point(6, 16)]
-    assert expected == element.get_all_coords(anchor, rotation=1)
+    assert expected == element.get_all_coords_after_rotation(anchor, rotation=1)
 
 
 def test_element_rotation_o():
@@ -48,6 +48,6 @@ def test_element_rotation_o():
     # anchor - точка вращения
     anchor = Point(8,17)
     expected = [Point(8,17), Point(9,17), Point(8,16), Point(9,16)]
-    assert expected == element.get_all_coords(anchor, rotation=0)
+    assert expected == element.get_all_coords_after_rotation(anchor, rotation=0)
     expected = [Point(8,17), Point(8,16), Point(7,17), Point(7,16)]
-    assert expected == element.get_all_coords(anchor, rotation=1)
+    assert expected == element.get_all_coords_after_rotation(anchor, rotation=1)

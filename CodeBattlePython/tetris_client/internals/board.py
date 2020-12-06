@@ -15,6 +15,7 @@ class Board:
         self._layer = self._json["layers"][0]
         self._len = len(self._layer)  # the length of the string
         self._size = int(sqrt(self._len))  # size of the board
+        self._layer = ''.join(reversed(self._line_by_line()))
 
     def __str__(self):
         return "Board:\n{brd}".format(brd=self._line_by_line())
@@ -113,15 +114,13 @@ class Board:
         return self._size * y + x
 
     def print_board(self):
-        print(self._line_by_line())
+        print('\n'.join(self._line_by_line()))
 
     def _line_by_line(self) -> str:
-        return "\n".join(
-            [
-                self._json["layers"][0][i : i + self._size]
-                for i in range(0, self._len, self._size)
-            ]
-        )
+        return [
+            self._json["layers"][0][i : i + self._size]
+            for i in range(0, self._len, self._size)
+        ]
 
     def to_string(self) -> str:
         return str(self)

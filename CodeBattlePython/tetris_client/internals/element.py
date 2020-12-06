@@ -136,6 +136,9 @@ class Element:
 
         return elems_shift[self._name]
 
+    def get_all_coords(self, anchor: Union[Point, Tuple[int]]) -> List[Point]:
+        return self.get_all_coords_after_rotation(anchor)
+
 
 def prepare_element(element_object: Union[Element, str]) -> Point:
     try:
