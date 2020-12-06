@@ -358,9 +358,9 @@ def turn(gcb: Board) -> List[TetrisAction]:
     actions.append(TetrisAction.DOWN)
 
     end_time = time.time()
-    # print("  TIME.  get_board: {:.6f}  get_score: {:.6f}  get_cols_heights: {:.6f}  total: {:.6f}".format(
-    #     total_get_board_time, total_get_score_time, total_get_cols_heights_time, end_time - start_time),
-    # )
+    print("  TIME.  get_board: {:.6f}  get_score: {:.6f}  get_cols_heights: {:.6f}  total: {:.6f}".format(
+        total_get_board_time, total_get_score_time, total_get_cols_heights_time, end_time - start_time),
+    )
 
     # time.sleep(10)
 
